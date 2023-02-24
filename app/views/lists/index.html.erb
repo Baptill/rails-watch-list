@@ -1,7 +1,10 @@
 <h1>Lists#index</h1>
 <p><% @lists.each do |list| %></p>
+  <% if list.photo.attached? %>
+    <%= cl_image_tag list.photo.key, crop: :fill, width: 150 %>
+  <% end %>
   <%=link_to list.name, list_path(list)%>
+
 <% end %>
 
 <%= link_to "Nouvelle liste", new_list_path %>
-
